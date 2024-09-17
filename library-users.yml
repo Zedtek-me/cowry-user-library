@@ -1,0 +1,16 @@
+services:
+  users_library_api:
+    build: .
+    image: users_library_api
+    container_name: users_library_api
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - library_network
+    volumes:
+      - .:/app/
+
+networks:
+  library_network:
+    external: true
